@@ -1,4 +1,5 @@
 const BadRequestError = require("../middleware/errors/bad-request-error");
+const UserSchema = require("../schemas/user.schema");
 
 class UserController {
 
@@ -25,10 +26,14 @@ class UserController {
 
     static create(req, res){
 
-        const {email, username, password} = req.body;
+        const user = req.body;
+
+        const {error, value} = UserSchema.validate(req.body);
+        if(error) throw error;
+
        return res.status(201).send({
-            email: email,
-            username: username,
+            email: user.email,
+            username: user.username,
             status: "CREATED"
         })
         

@@ -2,7 +2,7 @@ const Joi = require('joi');
 
 // use: https://joi.dev/api/?v=17.9.1
 
-const User = Joi.object({
+const UserSchema = Joi.object({
     id: Joi.number(),
     username: Joi.string().alphanum().min(4).max(30).required(),
     password: Joi.string()
@@ -10,4 +10,4 @@ const User = Joi.object({
     email: Joi.string().email({ minDomainSegments: 2, tlds: { allow: ['com', 'net'] } })
 })
 
-module.exports
+module.exports = UserSchema;

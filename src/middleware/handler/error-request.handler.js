@@ -7,6 +7,14 @@ const errorRequestHandler = (error, req, res, next) =>{
         })
     }
 
+    if(error.name === "ValidationError"){
+        return res.status(422).send({
+            type: "ValidationError",
+            statusCode: 422,
+            notifcation: error.details
+        })
+    }
+
     return res.status(500).send("Something wrong!");    
 }
 
