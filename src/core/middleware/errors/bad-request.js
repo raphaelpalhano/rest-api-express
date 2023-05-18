@@ -1,4 +1,4 @@
-class BadRequestError extends Error {
+class BadRequest extends Error {
     constructor(){
         super("request with invalid param or format!");
         this.name = "BadRequestError";
@@ -6,4 +6,4 @@ class BadRequestError extends Error {
     }
 }
 
-module.exports = BadRequestError;
+module.exports = BadRequest;

@@ -15,6 +15,18 @@ const errorRequestHandler = (error, req, res, next) =>{
         })
     }
 
+
+
+    if(error.name === "NotFoundError"){
+        return res.status(404).send({
+            type: "NotFoundError",
+            statusCode: error.statusCode,
+            notification: error.message
+        })
+    }
+
+    console.log(error)
+
     return res.status(500).send("Something wrong!");    
 }
 

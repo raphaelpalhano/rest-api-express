@@ -1,0 +1,14 @@
+version: '3'
+
+
+services:
+  db-college:
+    image: mysql:8.0.30-debian
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: user-db
+    ports:
+     - 3306:3306
+    expose:
+      - 3306
