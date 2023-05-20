@@ -8,5 +8,8 @@ const router = express.Router();
 router.get('/user', resolverHandler(userController.getUsers));
 router.get('/user/:id', resolverHandler(userController.getUser));
 router.post('/user', resolverHandler(userController.createUser));
+router.patch('/user/:id', resolverHandler(userController.updateUser));
+router.delete('/user/:id', resolverHandler(userController.deleteUSer));
+
 
 module.exports = router

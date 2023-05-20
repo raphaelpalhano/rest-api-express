@@ -17,3 +17,16 @@ exports.createUser = async function(req, res){
     await userService.create(req.body);
     res.status(201).send('CREATED');
 }
+
+exports.updateUser = async function(req, res){
+    const id = req.params.id;
+    const body = req.body
+    await userService.update(id, body);
+    res.status(204).send('UPDATED');
+}
+
+exports.deleteUSer = async function(req, res){
+    const id = req.params.id;
+    await userService.delete(id);
+    res.status(204).send('DELETED');
+}
